@@ -19,4 +19,20 @@ function factorialize(num) {
 
 factorialize(5);
 
-//Check for Palindromes. 
+//Check for Palindromes. I used a regex formula that looks for any non alphanumeric charcter or special character and replaces it with an empty string. I then compared str to reverse to see if they are === to each other. 
+
+function palindrome(str) {
+  var reverse = "";
+  var regex = /(\W*)(_*)/g;  
+  str = str.toLowerCase();
+  str = str.replace(regex, "");
+  reverse = str.split("").reverse().join("");
+  if(reverse===str){
+    return true;
+  }else 
+  return false;
+}
+
+
+
+palindrome("_eye");
