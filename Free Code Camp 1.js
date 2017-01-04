@@ -33,6 +33,20 @@ function palindrome(str) {
   return false;
 }
 
-
-
 palindrome("_eye");
+
+//Title Case a Sentence. First I lowercased the input str and split it up into an array. In a new array variable called string I pushed the first value in each nested array of str after it is capitalize. 
+
+function titleCase(str) {
+  str = str.toLowerCase().split(" ");
+  var string = [];
+  for(var i = 0; i < str.length; i++){
+    string.push(str[i].charAt(0).toUpperCase() + str[i].slice(1));
+  }
+  return string.join(" ");
+}
+
+titleCase("I'm a little tea pot");
+
+
+
