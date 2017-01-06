@@ -48,5 +48,24 @@ function titleCase(str) {
 
 titleCase("I'm a little tea pot");
 
+//Chop start of a sentence by value; I used a reduce function to go through and slice off the start of an array based on the howMany value;
 
+function slasher(arr, howMany) {
+  // it doesn't always pay to be first
+  return arr.reduce(function(shorten){
+    return arr.slice(howMany);
+  });
+}
+
+slasher([1, 2, 3], 2);
+
+//Removed null objects; Use the filter property to remove parts of an array that where consider null values
+
+
+function bouncer(arr) {
+  // Don't show a false ID to this bouncer.
+  return arr.filter(Boolean);
+}
+
+bouncer([7, "ate", "", false, 9]);
 
