@@ -53,6 +53,16 @@ function titleCase(str) {
 
 titleCase("I'm a little tea pot");
 
+//Return the Largest Numbers in Arrays. Apply function applies Math.max each time to arr[large]
+function largestOfFour(arr) {
+  return arr.map((large)=>{
+    return Math.max.apply(null, large);
+  });
+}
+
+largestOfFour([[4, 5, 1, 3], [13, 27, 18, 26], [32, 35, 37, 39], [1000, 1001, 857, 1]]);
+
+
 //Chop start of a sentence by value; I used a reduce function to go through and slice off the start of an array based on the howMany value;
 function slasher(arr, howMany) {
   // it doesn't always pay to be first
