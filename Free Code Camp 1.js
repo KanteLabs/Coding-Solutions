@@ -62,6 +62,60 @@ function largestOfFour(arr) {
 
 largestOfFour([[4, 5, 1, 3], [13, 27, 18, 26], [32, 35, 37, 39], [1000, 1001, 857, 1]]);
 
+//Confirm the ending. Works by extracting a value in str that is the length of target.
+function confirmEnding(str, target) {
+  var str_end = "";
+  str_end = str.substr(str.length - target.length);
+  if(str_end===target){
+    return true;
+  }else{
+    return false;
+  }
+}
+confirmEnding("Bastian", "n");
+
+
+//Repeat a string by the vaule of num
+function repeatStringNumTimes(str, num) {
+  var str_holder = [];
+  if(num<0){
+    return '';
+  }else{
+    for(var i =0; i<num;i++){
+      str_holder.push(str);
+    }
+  }
+  return str_holder.join('');
+}
+
+repeatStringNumTimes("*", 3);
+
+//Cut a sting based on the value of num
+function truncateString(str, num) {
+  var str_holder = [];
+  if(str.length>num && num>3){
+   str_holder = str.slice(0, num-3);
+    return str_holder + '...';
+  }else if(num<=3){
+    str_holder = str.slice(0, num);
+    return str_holder + '...';
+  }else{
+    return str;
+  }
+}
+truncateString("A-tisket a-tasket A green and yellow basket", "A-tisket a-tasket A green and yellow basket".length + 2);
+
+//Chunky Monkey
+function chunkArrayInGroups(arr, size) {
+  var newArr = [];  
+  for(var i=0;i<arr.length;){
+    newArr.push(arr.slice(i, i+size));
+    i+=size;
+  }  
+  return newArr;
+}
+chunkArrayInGroups(["a", "b", "c", "d"], 2);
+
 
 //Chop start of a sentence by value; I used a reduce function to go through and slice off the start of an array based on the howMany value;
 function slasher(arr, howMany) {
