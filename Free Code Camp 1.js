@@ -158,3 +158,46 @@ function destroyer(arr) {
 }
 
 destroyer([1, 2, 3, 1, 2, 3], 2, 3);
+
+//Where do I belong
+function getIndexToIns(arr, num) {
+  // Find my place in this sorted array.
+  function sorted(a, b){
+    return a -b;
+  }
+  arr = arr.sort(sorted);
+  
+  for(var i = 0; i<arr.length; i++){
+    if(arr[i]===num){
+      return arr.indexOf(arr[i]);
+    }else if(arr[i] != num){
+      arr.push(num);
+      arr = arr.sort(sorted);
+      return arr.indexOf(num);
+    }
+  }
+}
+
+getIndexToIns([40, 60], 50);
+
+//Ceasers Cipher
+function rot13(str) { // LBH QVQ VG!
+  var strHolder = [];
+  var string;
+  
+  for(var i = 0; i <str.length; i++){
+    if(str.charCodeAt(i) === 32){
+       strHolder.push(' ');
+    }else if(str.charCodeAt(i) <= 90 && str.charCodeAt(i)>77){
+      strHolder.push(String.fromCharCode(str.charCodeAt(i) - 13));
+    }else if(str.charCodeAt(i)<=77 && str.charCodeAt(i)>64)
+    strHolder.push(String.fromCharCode(str.charCodeAt(i) + 13));
+    else{
+    strHolder.push(String.fromCharCode(str.charCodeAt(i)));
+    }
+  }
+  return strHolder.join('');
+}
+
+// Change the inputs below to test
+rot13("SERR CVMMN!");
