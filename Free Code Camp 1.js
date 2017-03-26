@@ -116,16 +116,27 @@ function chunkArrayInGroups(arr, size) {
 }
 chunkArrayInGroups(["a", "b", "c", "d"], 2);
 
-
 //Chop start of a sentence by value; I used a reduce function to go through and slice off the start of an array based on the howMany value;
 function slasher(arr, howMany) {
-  // it doesn't always pay to be first
-  return arr.reduce(function(shorten){
-    return arr.slice(howMany);
-  });
+ return arr.slice(howMany);
 }
 
 slasher([1, 2, 3], 2);
+
+//Mutations
+function mutation(arr) {
+  var arr1 = arr[0].toLowerCase();
+  var arr2 = arr[1].toLowerCase();
+  
+  for(var i = 0; i<arr2.length;i++){
+    if(arr1.indexOf(arr2[i]) < 0){
+      return false;
+    }
+  }return true;
+  
+}
+
+mutation(["hello", "hey"]);
 
 //Removed null objects; Use the filter property to remove parts of an array that where consider null values
 function bouncer(arr) {
@@ -135,3 +146,15 @@ function bouncer(arr) {
 
 bouncer([7, "ate", "", false, 9]);
 
+//Seek and destroy
+function destroyer(arr) {
+  // Remove all the values
+  var args = Array.from(arguments);
+  args.splice(0,1);
+  
+  return arr.filter(function(val){
+    return args.indexOf(val) === -1;
+  });
+}
+
+destroyer([1, 2, 3, 1, 2, 3], 2, 3);
